@@ -1,0 +1,19 @@
+## 1. How you started Loki Loki was deployed as part of the Grafana-Loki-Promtail stack using Docker Compose.
+
+The command used to start the services was:
+
+docker-compose up -d
+
+The final, working Loki service definition from docker-compose.yml: loki:
+
+image: grafana/loki:latest
+
+ports:
+
+command: -config.file=/etc/loki/ local-config.yaml -validation.allow-str uctured-metadata=false
+
+volumes:
+
+./loki-config.yml:/etc/loki/ local-config.yaml
+
+## 2. The command you used to view logs Logs are accessed in Grafana's Explore UI (http://localhost:3000/explore) using the LogQL query language.
